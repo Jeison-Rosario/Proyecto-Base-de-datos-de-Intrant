@@ -1,34 +1,49 @@
-# Proyecto-Base-de-datos-de-Intrant
-Base de datos desarrollada en SQL Server para el área de licencias, certificaciones y multas del INTRANT. Cuenta con Triggers, Stored Procedures y restricciones para asignar permisos y administrar los datos dependiendo el usuario y la posición que se tenga dentro de la empresa.
+# Base de datos de tránsito · Caso académico INTRANT
 
-El propósito de esta futura base de datos es que pueda gestionar eficazmente la
-información relacionada con la emisión y administración de documentos clave
-relacionados con el tránsito y el transporte terrestre en nuestro país. Esta base de
-datos consta de varios objetivos y propósitos:
+Proyecto académico en SQL Server que modela solicitantes, licencias, permisos, certificaciones, exámenes, empleados e infracciones. Es un ejercicio de diseño y programación T-SQL; no acredita afiliación con INTRANT ni cumplimiento de requisitos legales reales.
 
-Registro y Seguimiento de Solicitantes: Registrar y realizar un seguimiento de los
-datos de las personas que solicitan licencias, permisos y certificaciones
-relacionadas con el tránsito y el transporte terrestre. Esto incluye información
-personal, detalles de contacto y cualquier otra información relevante.
+## Contenido
 
-Generación de Documentos: Generar y almacenar documentos como licencias de
-conducir, permisos de transporte, certificaciones vehiculares, entre otros, de
-acuerdo con las solicitudes y los requisitos aplicables.
+- `PROYECTO_FINAL..sql`: definición de esquema, datos de ejemplo, consultas, vistas, triggers, procedimientos y ejemplos de permisos.
+- `Diagramas/`: diagramas entidad-relación y relacional en PDF.
+- `LICENSE`: licencia del repositorio.
 
-Integración de Requisitos Legales: Asegurarse de que todas las emisiones de
-licencias, permisos y certificaciones cumplan con los requisitos legales y
-reglamentarios establecidos por las autoridades de tránsito y transporte terrestre.
-Esto incluye la verificación de la documentación necesaria y el cumplimiento de los
-estándares de seguridad.
+## Elementos presentes en el script
 
-Gestión de la Vigencia: Controlar la vigencia de las licencias, permisos y
-certificaciones y enviar alertas para renovaciones o actualizaciones necesarias.
-Facilitar la Atención al Cliente: Brindar a los solicitantes y a las partes interesadas
-una forma eficiente de acceder a información sobre el estado de sus solicitudes y
-la obtención de documentos.
+- Claves primarias y relaciones mediante claves foráneas.
+- Vistas como `VistaLicencias` y `Vista_solicitantes_licencias`.
+- Procedimientos de consulta por edad y categoría e información de solicitantes.
+- Triggers para operaciones sobre licencias y permisos.
+- Ejemplos de logins, usuarios y asignación de permisos.
+- Normalización posterior de puestos de empleados.
 
-En pocas palabras, el propósito de esta base de datos es automatizar la gestión
-de todos los aspectos relacionados con la emisión de licencias, permisos y
-certificaciones de INTRANT, lo que conlleva a una mayor eficiencia, cumplimiento
-de normativas y un mejor servicio a los ciudadanos y las empresas que requieren
-estos documentos.
+## Revisión y ejecución
+
+Requiere SQL Server y un editor compatible con T-SQL. Trabajar exclusivamente en una instancia de pruebas.
+
+El archivo es un guion académico que mezcla creación, datos, demostraciones y modificaciones posteriores. No está validado como una migración ejecutable de principio a fin.
+
+1. Leer el script completo y los diagramas.
+2. Separar creación de esquema, datos de prueba, seguridad y demostraciones.
+3. Revisar delimitación de lotes con `GO`, especialmente antes de crear vistas, procedimientos y triggers.
+4. Revisar las creaciones repetidas de usuarios y reemplazar credenciales de ejemplo.
+5. Ejecutar y comprobar cada bloque sobre una base nueva y desechable.
+6. No volver a ejecutar indiscriminadamente bloques de creación, inserción o eliminación.
+
+## Mejoras para convertirlo en una muestra de portafolio
+
+- Crear scripts ordenados y reproducibles para esquema, seed y consultas.
+- Añadir `NOT NULL`, restricciones de dominio y validaciones de fechas y montos según reglas explícitas.
+- Calcular la edad desde la fecha de nacimiento para evitar inconsistencias.
+- Revisar que los triggers procesen correctamente operaciones de varias filas.
+- Documentar y probar permisos con usuarios de privilegios mínimos.
+- Confirmar que los datos publicados sean sintéticos.
+- Agregar pruebas de integridad y actualizar los diagramas al esquema final.
+
+## Validación
+
+La documentación se basa en revisión estática del script. No se ejecutó SQL Server ni se comprobaron los PDF o el cumplimiento de reglas del dominio. Las funcionalidades descritas son objetos presentes en el código, no una certificación de funcionamiento.
+
+## Autor
+
+[Jeison Rosario](https://github.com/Jeison-Rosario)
